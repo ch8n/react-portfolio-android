@@ -3,22 +3,22 @@ import {
   StyleSheet,
   View,
   Text,
-  Button
+  Button,
+  Image
 } from 'react-native';
 import Layout from './src/pages/Layout';
 
 
 const App = () => {
 
-  const [response, setResponse] = useState("")
+  const [response, setResponse] = useState({})
 
   useEffect(() => {
     console.log("use effect called");
     fetch("https://blog-strapi-mongo-headless.herokuapp.com/portfolios")
       .then(res => res.json())
       .then(result => {
-        console.log(result[0]);
-        setResponse(JSON.stringify(result));
+        setResponse(result[0]);
       }).catch(err => {
         console.log(err);
       })
@@ -27,22 +27,22 @@ const App = () => {
   return (
     <Fragment>
       <Layout >
-        <Text>{response}</Text>
-        <Button
-          title="restart"
-          onPress={() => { console.log("test") }}
-        />
+
+        {console.log(JSON.stringify(response))}
+        {console.log(response.bio)}
+        {console.log(response.designation)}
+
+        <Text style={styles.name}>{response.name}</Text>
+        <Text >{response.bio}</Text>
+
       </Layout>
     </Fragment>
   )
 };
 
 const styles = StyleSheet.create({
-  toolbar: {
-    backgroundColor: '#ee6e73',
-    height: 56,
-    alignSelf: 'stretch',
-    textAlign: 'center',
+  name: {
+    fontSize: 28
   }
 });
 
