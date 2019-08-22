@@ -37,7 +37,8 @@ const App = () => {
           <Text style={styles.name}>{response.name}</Text>
           <MarkDown style={{ ...styles.name, fontSize: 16 }}>{response.bio ? response.bio.replace("<br>", "\n") : ""}</MarkDown>
           <Text style={{ ...styles.name, fontSize: 28, marginTop: 16 }}>{response.designation}</Text>
-          {response.designation ? (<Social />) : (null)}
+          {response.designation ? (<Social urls={response.social_share} />) : (null)}
+
         </View>
       </Layout>
     </Fragment>
