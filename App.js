@@ -3,9 +3,11 @@ import {
   StyleSheet,
   View,
   Text,
-  Button,
+  ScrollView,
   Image
 } from 'react-native';
+import MarkDown from 'react-native-simple-markdown';
+import Social from './src/components/Social';
 import Layout from './src/pages/Layout';
 
 
@@ -27,14 +29,16 @@ const App = () => {
   return (
     <Fragment>
       <Layout >
+        <View style={{ padding: 24 }}>
+          {console.log(response)}
+          {console.log(response.designation)}
 
-        {console.log(JSON.stringify(response))}
-        {console.log(response.bio)}
-        {console.log(response.designation)}
-
-        <Text style={styles.name}>{response.name}</Text>
-        <Text >{response.bio}</Text>
-
+          <Image style={styles.avatar} source={{ uri: response.avatar ? response.avatar.url : "" }} />
+          <Text style={styles.name}>{response.name}</Text>
+          <MarkDown style={{ ...styles.name, fontSize: 16 }}>{response.bio ? response.bio.replace("<br>", "\n") : ""}</MarkDown>
+          <Text style={{ ...styles.name, fontSize: 28, marginTop: 16 }}>{response.designation}</Text>
+          {response.designation ? (<Social />) : (null)}
+        </View>
       </Layout>
     </Fragment>
   )
@@ -42,7 +46,16 @@ const App = () => {
 
 const styles = StyleSheet.create({
   name: {
-    fontSize: 28
+    fontSize: 36,
+    marginBottom: 8
+  },
+  avatar: {
+    height: 350,
+    width: 350,
+    borderRadius: 350 / 2,
+    marginTop: 16,
+    marginBottom: 16,
+    alignSelf: "center"
   }
 });
 

@@ -10,7 +10,6 @@ export default function Toolbar() {
                 <TouchableOpacity
                     style={{ alignSelf: "center" }}
                     onPress={() => { console.log("Projects clicked!") }}>
-
                     <Text style={styles.toolbarItem}>Projects</Text>
 
                 </TouchableOpacity>
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between"
     },
     brand: {
-        fontSize: 36,
+        fontSize: 32,
         padding: 8
     },
     toolbarItem: {
