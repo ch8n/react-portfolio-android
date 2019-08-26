@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import MarkDown from 'react-native-simple-markdown';
 import Social from './src/components/Social';
+import Skills from './src/components/Skills';
+import Education from './src/components/Education';
 import Layout from './src/pages/Layout';
 
 
@@ -39,6 +41,9 @@ const App = () => {
           <Text style={{ ...styles.name, fontSize: 28, marginTop: 16 }}>{response.designation}</Text>
           {response.designation ? (<Social urls={response.social_share} />) : (null)}
 
+          <Skills skills={response.skills} />
+          <Education education={response.meta ? response.meta.education : []} />
+
         </View>
       </Layout>
     </Fragment>
@@ -51,9 +56,9 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   avatar: {
-    height: 350,
-    width: 350,
-    borderRadius: 350 / 2,
+    height: 200,
+    width: 200,
+    borderRadius: 200 / 2,
     marginTop: 16,
     marginBottom: 16,
     alignSelf: "center"

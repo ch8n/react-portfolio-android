@@ -6,19 +6,11 @@ import { CustomTabs } from "react-native-custom-tabs"
 
 export default function Social({ urls }) {
 
-
     const { github, facebook, twitter, instagram, linkedin } = urls
 
     return (
         <View >
             <View style={{ flexDirection: "row", justifyContent: "space-between", width: 250 }}>
-
-                {console.log(urls)}
-                {console.log(github)}
-                {console.log(facebook)}
-                {console.log(twitter)}
-                {console.log(instagram)}
-                {console.log(linkedin)}
 
                 <TouchableOpacity
                     style={{ alignSelf: "center" }}
