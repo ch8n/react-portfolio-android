@@ -3,12 +3,9 @@ import {
     ScrollView
 } from 'react-native';
 
-import Toolbar from '../components/Toolbar';
-
-export default function Layout({ children }) {
+export default function ScrollLayout({ children }) {
     return (
         <Fragment>
-            <Toolbar />
             <ScrollView>
                 {children}
             </ScrollView>
